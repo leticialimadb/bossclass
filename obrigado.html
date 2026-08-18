@@ -116,6 +116,24 @@ h1 .ln{display:block}
 
 /* ── Etapa 2: qualificação ──────────────────────────────────── */
 .qual{padding-bottom:clamp(3.5rem,8vh,6rem)}
+/* cartao de destaque do formulario */
+.qual-card{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:clamp(1.7rem,5vw,2.8rem);
+  box-shadow:0 26px 60px -34px rgba(63,39,24,.32);
+  position:relative;overflow:hidden;
+}
+.qual-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--amber),var(--brown));
+}
+.qual-selo{
+  display:inline-flex;align-items:center;gap:.55em;
+  padding:.45em 1.05em;margin-bottom:1.2rem;border-radius:999px;
+  background:rgba(124,75,15,.1);color:var(--amber);
+  font-size:.63rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+}
+.q-block:first-of-type{border-top:0;padding-top:0}
 .qual-head{text-align:center;margin-bottom:clamp(2.2rem,5vh,3rem)}
 .qual-head h2{margin:1rem 0 .9rem}
 .qual-head p{color:var(--mute);max-width:48ch;margin-inline:auto;font-size:.96rem}
@@ -234,7 +252,7 @@ footer .mark{width:60px;margin:0 auto 1.4rem;opacity:.6}
       <!-- contagem para o redirecionamento automático -->
       <div class="auto" id="auto" hidden>
         <div class="auto-bar"><i id="auto-fill"></i></div>
-        <p class="auto-txt">Abrindo o grupo automaticamente em <b id="auto-seg">8</b>s
+        <p class="auto-txt">Abrindo o grupo automaticamente em <b id="auto-seg">20</b>s
           · <button type="button" id="auto-cancel">cancelar</button></p>
       </div>
       <p class="auto-txt paused" id="auto-paused" hidden>Redirecionamento pausado — você vai para o grupo ao terminar as respostas.</p>
@@ -246,11 +264,11 @@ footer .mark{width:60px;margin:0 auto 1.4rem;opacity:.6}
 <section class="qual">
   <div class="wrap">
 
-    <div class="divider"><span>Opcional · 30 segundos</span></div>
+    <div class="divider"><span>e mais uma coisa</span></div>
 
-    <div id="painel">
+    <div id="painel" class="qual-card">
       <div class="qual-head">
-        <span class="eyebrow">Para você aproveitar melhor</span>
+        <span class="qual-selo">30 segundos · opcional</span>
         <h2>Me conta rapidinho <span class="italic">quem é você</span></h2>
         <p>Assim eu preparo a aula pensando em quem está do outro lado — e te mando
         só o que faz sentido para o seu momento.</p>
@@ -341,7 +359,7 @@ const CONFIG = {
 
   // 3. Redirecionamento automático para o grupo
   redirecionarAutomatico: true,
-  segundosParaRedirecionar: 8,
+  segundosParaRedirecionar: 20,
 
   // 4. Dia e hora da aula (fuso de Brasília)
   diaSemana: 2,   // 2 = terça
